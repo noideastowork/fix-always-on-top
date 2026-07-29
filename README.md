@@ -73,7 +73,7 @@ Entering and exiting Full Screen forces **WindowServer** to completely recalcula
 Edit the following line in the script and replace it with applications that are assigned to all desktops and sometimes become stuck.
 
 ```applescript
-set targetApps to {"Calendar", "Telegram", "YourAppNameHere"}
+set targetApps to {"Finder", "Calendar", "Telegram", "YourAppNameHere"}
 ```
 
 The names must exactly match the application names shown by macOS.
