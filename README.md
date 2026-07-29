@@ -27,7 +27,7 @@ This bug has existed across multiple macOS releases (including **Sonoma** and **
 killall Finder
 
 osascript -e '
-set targetApps to {"Calendar", "Telegram"}
+set targetApps to {"Finder", "Calendar", "Telegram"}
 
 tell application "System Events"
     repeat with appName in targetApps
