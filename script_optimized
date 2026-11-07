@@ -1,0 +1,33 @@
+#!/bin/bash
+
+osascript -e '
+set targetApps to {"Finder", "Todoist", "Calendar", "Telegram", "AyuGram", "Microsoft Excel"}
+
+tell application "System Events"
+    set runningApps to name of every application process
+    
+    repeat with appName in targetApps
+        if runningApps contains appName then
+            try
+                tell process appName
+                    if (count of windows) > 0 then
+                        set frontmost to true
+                        delay 0.3
+                        
+                        set theWindow to front window
+                        if (exists attribute "AXFullScreen" of theWindow) then
+                            set value of attribute "AXFullScreen" of theWindow to true
+                            delay 0.8
+                            
+                            set value of attribute "AXFullScreen" of theWindow to false
+                            delay 0.8
+                        end if
+                    end if
+                end tell
+            on error
+            end try
+        end if
+    end repeat
+end tell'
+
+killall Finder
